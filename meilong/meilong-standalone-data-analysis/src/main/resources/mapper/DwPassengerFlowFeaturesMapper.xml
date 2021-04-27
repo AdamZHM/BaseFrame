@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.ai.meilong.standalone.dataanalysis.mapper.DwPassengerFlowFeaturesMapper">
+  <resultMap id="BaseResultMap" type="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwPassengerFlowFeatures">
+    <!--@mbg.generated-->
+    <!--@Table dw_passenger_flow_features-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="station_name" jdbcType="LONGVARCHAR" property="stationName" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="step_out_num_x" jdbcType="BIGINT" property="stepOutNumX" />
+    <result column="step_in_num_x" jdbcType="BIGINT" property="stepInNumX" />
+    <result column="city" jdbcType="LONGVARCHAR" property="city" />
+    <result column="data_create_time" jdbcType="TIMESTAMP" property="dataCreateTime" />
+    <result column="humidity" jdbcType="LONGVARCHAR" property="humidity" />
+    <result column="location" jdbcType="LONGVARCHAR" property="location" />
+    <result column="province" jdbcType="LONGVARCHAR" property="province" />
+    <result column="road_blocked" jdbcType="DOUBLE" property="roadBlocked" />
+    <result column="road_congested" jdbcType="DOUBLE" property="roadCongested" />
+    <result column="road_expedite" jdbcType="DOUBLE" property="roadExpedite" />
+    <result column="road_unknown" jdbcType="DOUBLE" property="roadUnknown" />
+    <result column="temperature" jdbcType="LONGVARCHAR" property="temperature" />
+    <result column="traffic_desc" jdbcType="LONGVARCHAR" property="trafficDesc" />
+    <result column="weather" jdbcType="LONGVARCHAR" property="weather" />
+    <result column="wind_direction" jdbcType="LONGVARCHAR" property="windDirection" />
+    <result column="wind_power" jdbcType="LONGVARCHAR" property="windPower" />
+    <result column="rail_line" jdbcType="LONGVARCHAR" property="railLine" />
+    <result column="first_dis_bike_sum" jdbcType="DOUBLE" property="firstDisBikeSum" />
+    <result column="second_dis_bike_sum" jdbcType="DOUBLE" property="secondDisBikeSum" />
+    <result column="third_dis_bike_sum" jdbcType="DOUBLE" property="thirdDisBikeSum" />
+    <result column="fourth_dis_bike_sum" jdbcType="DOUBLE" property="fourthDisBikeSum" />
+    <result column="lock_status" jdbcType="LONGVARCHAR" property="lockStatus" />
+    <result column="is_weekend" jdbcType="BIT" property="isWeekend" />
+    <result column="day_str" jdbcType="LONGVARCHAR" property="dayStr" />
+    <result column="hour" jdbcType="BIGINT" property="hour" />
+    <result column="is_holiday" jdbcType="BIT" property="isHoliday" />
+    <result column="holiday_detail" jdbcType="LONGVARCHAR" property="holidayDetail" />
+    <result column="hour_period" jdbcType="LONGVARCHAR" property="hourPeriod" />
+    <result column="day_of_week" jdbcType="BIGINT" property="dayOfWeek" />
+    <result column="min_group" jdbcType="TIMESTAMP" property="minGroup" />
+    <result column="step_in_num_y" jdbcType="DOUBLE" property="stepInNumY" />
+    <result column="step_out_num_y" jdbcType="DOUBLE" property="stepOutNumY" />
+    <result column="step_in_cleaned" jdbcType="INTEGER" property="stepInCleaned" />
+    <result column="step_out_cleaned" jdbcType="INTEGER" property="stepOutCleaned" />
+    <result column="is_outlier" jdbcType="INTEGER" property="isOutlier" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, start_time, station_name, end_time, step_out_num_x, step_in_num_x, city, data_create_time, 
+    humidity, `location`, province, road_blocked, road_congested, road_expedite, road_unknown, 
+    temperature, traffic_desc, weather, wind_direction, wind_power, rail_line, first_dis_bike_sum, 
+    second_dis_bike_sum, third_dis_bike_sum, fourth_dis_bike_sum, lock_status, is_weekend, 
+    day_str, `hour`, is_holiday, holiday_detail, hour_period, day_of_week, min_group, 
+    step_in_num_y, step_out_num_y, step_in_cleaned, step_out_cleaned, is_outlier, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from dw_passenger_flow_features
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from dw_passenger_flow_features
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwPassengerFlowFeatures" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into dw_passenger_flow_features (start_time, station_name, end_time, 
+      step_out_num_x, step_in_num_x, city, 
+      data_create_time, humidity, `location`, 
+      province, road_blocked, road_congested, 
+      road_expedite, road_unknown, temperature, 
+      traffic_desc, weather, wind_direction, 
+      wind_power, rail_line, first_dis_bike_sum, 
+      second_dis_bike_sum, third_dis_bike_sum, fourth_dis_bike_sum, 
+      lock_status, is_weekend, day_str, 
+      `hour`, is_holiday, holiday_detail, 
+      hour_period, day_of_week, min_group, 
+      step_in_num_y, step_out_num_y, step_in_cleaned, 
+      step_out_cleaned, is_outlier, create_time, 
+      update_time)
+    values (#{startTime,jdbcType=TIMESTAMP}, #{stationName,jdbcType=LONGVARCHAR}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{stepOutNumX,jdbcType=BIGINT}, #{stepInNumX,jdbcType=BIGINT}, #{city,jdbcType=LONGVARCHAR}, 
+      #{dataCreateTime,jdbcType=TIMESTAMP}, #{humidity,jdbcType=LONGVARCHAR}, #{location,jdbcType=LONGVARCHAR}, 
+      #{province,jdbcType=LONGVARCHAR}, #{roadBlocked,jdbcType=DOUBLE}, #{roadCongested,jdbcType=DOUBLE}, 
+      #{roadExpedite,jdbcType=DOUBLE}, #{roadUnknown,jdbcType=DOUBLE}, #{temperature,jdbcType=LONGVARCHAR}, 
+      #{trafficDesc,jdbcType=LONGVARCHAR}, #{weather,jdbcType=LONGVARCHAR}, #{windDirection,jdbcType=LONGVARCHAR}, 
+      #{windPower,jdbcType=LONGVARCHAR}, #{railLine,jdbcType=LONGVARCHAR}, #{firstDisBikeSum,jdbcType=DOUBLE}, 
+      #{secondDisBikeSum,jdbcType=DOUBLE}, #{thirdDisBikeSum,jdbcType=DOUBLE}, #{fourthDisBikeSum,jdbcType=DOUBLE}, 
+      #{lockStatus,jdbcType=LONGVARCHAR}, #{isWeekend,jdbcType=BIT}, #{dayStr,jdbcType=LONGVARCHAR}, 
+      #{hour,jdbcType=BIGINT}, #{isHoliday,jdbcType=BIT}, #{holidayDetail,jdbcType=LONGVARCHAR}, 
+      #{hourPeriod,jdbcType=LONGVARCHAR}, #{dayOfWeek,jdbcType=BIGINT}, #{minGroup,jdbcType=TIMESTAMP}, 
+      #{stepInNumY,jdbcType=DOUBLE}, #{stepOutNumY,jdbcType=DOUBLE}, #{stepInCleaned,jdbcType=INTEGER}, 
+      #{stepOutCleaned,jdbcType=INTEGER}, #{isOutlier,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwPassengerFlowFeatures" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into dw_passenger_flow_features
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="stationName != null">
+        station_name,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="stepOutNumX != null">
+        step_out_num_x,
+      </if>
+      <if test="stepInNumX != null">
+        step_in_num_x,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="dataCreateTime != null">
+        data_create_time,
+      </if>
+      <if test="humidity != null">
+        humidity,
+      </if>
+      <if test="location != null">
+        `location`,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="roadBlocked != null">
+        road_blocked,
+      </if>
+      <if test="roadCongested != null">
+        road_congested,
+      </if>
+      <if test="roadExpedite != null">
+        road_expedite,
+      </if>
+      <if test="roadUnknown != null">
+        road_unknown,
+      </if>
+      <if test="temperature != null">
+        temperature,
+      </if>
+      <if test="trafficDesc != null">
+        traffic_desc,
+      </if>
+      <if test="weather != null">
+        weather,
+      </if>
+      <if test="windDirection != null">
+        wind_direction,
+      </if>
+      <if test="windPower != null">
+        wind_power,
+      </if>
+      <if test="railLine != null">
+        rail_line,
+      </if>
+      <if test="firstDisBikeSum != null">
+        first_dis_bike_sum,
+      </if>
+      <if test="secondDisBikeSum != null">
+        second_dis_bike_sum,
+      </if>
+      <if test="thirdDisBikeSum != null">
+        third_dis_bike_sum,
+      </if>
+      <if test="fourthDisBikeSum != null">
+        fourth_dis_bike_sum,
+      </if>
+      <if test="lockStatus != null">
+        lock_status,
+      </if>
+      <if test="isWeekend != null">
+        is_weekend,
+      </if>
+      <if test="dayStr != null">
+        day_str,
+      </if>
+      <if test="hour != null">
+        `hour`,
+      </if>
+      <if test="isHoliday != null">
+        is_holiday,
+      </if>
+      <if test="holidayDetail != null">
+        holiday_detail,
+      </if>
+      <if test="hourPeriod != null">
+        hour_period,
+      </if>
+      <if test="dayOfWeek != null">
+        day_of_week,
+      </if>
+      <if test="minGroup != null">
+        min_group,
+      </if>
+      <if test="stepInNumY != null">
+        step_in_num_y,
+      </if>
+      <if test="stepOutNumY != null">
+        step_out_num_y,
+      </if>
+      <if test="stepInCleaned != null">
+        step_in_cleaned,
+      </if>
+      <if test="stepOutCleaned != null">
+        step_out_cleaned,
+      </if>
+      <if test="isOutlier != null">
+        is_outlier,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stepOutNumX != null">
+        #{stepOutNumX,jdbcType=BIGINT},
+      </if>
+      <if test="stepInNumX != null">
+        #{stepInNumX,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dataCreateTime != null">
+        #{dataCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="humidity != null">
+        #{humidity,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="roadBlocked != null">
+        #{roadBlocked,jdbcType=DOUBLE},
+      </if>
+      <if test="roadCongested != null">
+        #{roadCongested,jdbcType=DOUBLE},
+      </if>
+      <if test="roadExpedite != null">
+        #{roadExpedite,jdbcType=DOUBLE},
+      </if>
+      <if test="roadUnknown != null">
+        #{roadUnknown,jdbcType=DOUBLE},
+      </if>
+      <if test="temperature != null">
+        #{temperature,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="trafficDesc != null">
+        #{trafficDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="weather != null">
+        #{weather,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="windDirection != null">
+        #{windDirection,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="windPower != null">
+        #{windPower,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="railLine != null">
+        #{railLine,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="firstDisBikeSum != null">
+        #{firstDisBikeSum,jdbcType=DOUBLE},
+      </if>
+      <if test="secondDisBikeSum != null">
+        #{secondDisBikeSum,jdbcType=DOUBLE},
+      </if>
+      <if test="thirdDisBikeSum != null">
+        #{thirdDisBikeSum,jdbcType=DOUBLE},
+      </if>
+      <if test="fourthDisBikeSum != null">
+        #{fourthDisBikeSum,jdbcType=DOUBLE},
+      </if>
+      <if test="lockStatus != null">
+        #{lockStatus,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isWeekend != null">
+        #{isWeekend,jdbcType=BIT},
+      </if>
+      <if test="dayStr != null">
+        #{dayStr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="hour != null">
+        #{hour,jdbcType=BIGINT},
+      </if>
+      <if test="isHoliday != null">
+        #{isHoliday,jdbcType=BIT},
+      </if>
+      <if test="holidayDetail != null">
+        #{holidayDetail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="hourPeriod != null">
+        #{hourPeriod,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dayOfWeek != null">
+        #{dayOfWeek,jdbcType=BIGINT},
+      </if>
+      <if test="minGroup != null">
+        #{minGroup,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stepInNumY != null">
+        #{stepInNumY,jdbcType=DOUBLE},
+      </if>
+      <if test="stepOutNumY != null">
+        #{stepOutNumY,jdbcType=DOUBLE},
+      </if>
+      <if test="stepInCleaned != null">
+        #{stepInCleaned,jdbcType=INTEGER},
+      </if>
+      <if test="stepOutCleaned != null">
+        #{stepOutCleaned,jdbcType=INTEGER},
+      </if>
+      <if test="isOutlier != null">
+        #{isOutlier,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwPassengerFlowFeatures">
+    <!--@mbg.generated-->
+    update dw_passenger_flow_features
+    <set>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationName != null">
+        station_name = #{stationName,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stepOutNumX != null">
+        step_out_num_x = #{stepOutNumX,jdbcType=BIGINT},
+      </if>
+      <if test="stepInNumX != null">
+        step_in_num_x = #{stepInNumX,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dataCreateTime != null">
+        data_create_time = #{dataCreateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="humidity != null">
+        humidity = #{humidity,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="location != null">
+        `location` = #{location,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="roadBlocked != null">
+        road_blocked = #{roadBlocked,jdbcType=DOUBLE},
+      </if>
+      <if test="roadCongested != null">
+        road_congested = #{roadCongested,jdbcType=DOUBLE},
+      </if>
+      <if test="roadExpedite != null">
+        road_expedite = #{roadExpedite,jdbcType=DOUBLE},
+      </if>
+      <if test="roadUnknown != null">
+        road_unknown = #{roadUnknown,jdbcType=DOUBLE},
+      </if>
+      <if test="temperature != null">
+        temperature = #{temperature,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="trafficDesc != null">
+        traffic_desc = #{trafficDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="weather != null">
+        weather = #{weather,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="windDirection != null">
+        wind_direction = #{windDirection,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="windPower != null">
+        wind_power = #{windPower,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="railLine != null">
+        rail_line = #{railLine,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="firstDisBikeSum != null">
+        first_dis_bike_sum = #{firstDisBikeSum,jdbcType=DOUBLE},
+      </if>
+      <if test="secondDisBikeSum != null">
+        second_dis_bike_sum = #{secondDisBikeSum,jdbcType=DOUBLE},
+      </if>
+      <if test="thirdDisBikeSum != null">
+        third_dis_bike_sum = #{thirdDisBikeSum,jdbcType=DOUBLE},
+      </if>
+      <if test="fourthDisBikeSum != null">
+        fourth_dis_bike_sum = #{fourthDisBikeSum,jdbcType=DOUBLE},
+      </if>
+      <if test="lockStatus != null">
+        lock_status = #{lockStatus,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="isWeekend != null">
+        is_weekend = #{isWeekend,jdbcType=BIT},
+      </if>
+      <if test="dayStr != null">
+        day_str = #{dayStr,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="hour != null">
+        `hour` = #{hour,jdbcType=BIGINT},
+      </if>
+      <if test="isHoliday != null">
+        is_holiday = #{isHoliday,jdbcType=BIT},
+      </if>
+      <if test="holidayDetail != null">
+        holiday_detail = #{holidayDetail,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="hourPeriod != null">
+        hour_period = #{hourPeriod,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="dayOfWeek != null">
+        day_of_week = #{dayOfWeek,jdbcType=BIGINT},
+      </if>
+      <if test="minGroup != null">
+        min_group = #{minGroup,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stepInNumY != null">
+        step_in_num_y = #{stepInNumY,jdbcType=DOUBLE},
+      </if>
+      <if test="stepOutNumY != null">
+        step_out_num_y = #{stepOutNumY,jdbcType=DOUBLE},
+      </if>
+      <if test="stepInCleaned != null">
+        step_in_cleaned = #{stepInCleaned,jdbcType=INTEGER},
+      </if>
+      <if test="stepOutCleaned != null">
+        step_out_cleaned = #{stepOutCleaned,jdbcType=INTEGER},
+      </if>
+      <if test="isOutlier != null">
+        is_outlier = #{isOutlier,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwPassengerFlowFeatures">
+    <!--@mbg.generated-->
+    update dw_passenger_flow_features
+    set start_time = #{startTime,jdbcType=TIMESTAMP},
+      station_name = #{stationName,jdbcType=LONGVARCHAR},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      step_out_num_x = #{stepOutNumX,jdbcType=BIGINT},
+      step_in_num_x = #{stepInNumX,jdbcType=BIGINT},
+      city = #{city,jdbcType=LONGVARCHAR},
+      data_create_time = #{dataCreateTime,jdbcType=TIMESTAMP},
+      humidity = #{humidity,jdbcType=LONGVARCHAR},
+      `location` = #{location,jdbcType=LONGVARCHAR},
+      province = #{province,jdbcType=LONGVARCHAR},
+      road_blocked = #{roadBlocked,jdbcType=DOUBLE},
+      road_congested = #{roadCongested,jdbcType=DOUBLE},
+      road_expedite = #{roadExpedite,jdbcType=DOUBLE},
+      road_unknown = #{roadUnknown,jdbcType=DOUBLE},
+      temperature = #{temperature,jdbcType=LONGVARCHAR},
+      traffic_desc = #{trafficDesc,jdbcType=LONGVARCHAR},
+      weather = #{weather,jdbcType=LONGVARCHAR},
+      wind_direction = #{windDirection,jdbcType=LONGVARCHAR},
+      wind_power = #{windPower,jdbcType=LONGVARCHAR},
+      rail_line = #{railLine,jdbcType=LONGVARCHAR},
+      first_dis_bike_sum = #{firstDisBikeSum,jdbcType=DOUBLE},
+      second_dis_bike_sum = #{secondDisBikeSum,jdbcType=DOUBLE},
+      third_dis_bike_sum = #{thirdDisBikeSum,jdbcType=DOUBLE},
+      fourth_dis_bike_sum = #{fourthDisBikeSum,jdbcType=DOUBLE},
+      lock_status = #{lockStatus,jdbcType=LONGVARCHAR},
+      is_weekend = #{isWeekend,jdbcType=BIT},
+      day_str = #{dayStr,jdbcType=LONGVARCHAR},
+      `hour` = #{hour,jdbcType=BIGINT},
+      is_holiday = #{isHoliday,jdbcType=BIT},
+      holiday_detail = #{holidayDetail,jdbcType=LONGVARCHAR},
+      hour_period = #{hourPeriod,jdbcType=LONGVARCHAR},
+      day_of_week = #{dayOfWeek,jdbcType=BIGINT},
+      min_group = #{minGroup,jdbcType=TIMESTAMP},
+      step_in_num_y = #{stepInNumY,jdbcType=DOUBLE},
+      step_out_num_y = #{stepOutNumY,jdbcType=DOUBLE},
+      step_in_cleaned = #{stepInCleaned,jdbcType=INTEGER},
+      step_out_cleaned = #{stepOutCleaned,jdbcType=INTEGER},
+      is_outlier = #{isOutlier,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

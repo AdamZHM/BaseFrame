@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.ai.meilong.standalone.dataanalysis.mapper.DwTrafficStatusInfoMapper">
+  <resultMap id="BaseResultMap" type="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwTrafficStatusInfo">
+    <!--@mbg.generated-->
+    <!--@Table meilong_standalone_data_analysis.dw_traffic_status_info-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="humidity" jdbcType="VARCHAR" property="humidity" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="road_blocked" jdbcType="VARCHAR" property="roadBlocked" />
+    <result column="road_congested" jdbcType="VARCHAR" property="roadCongested" />
+    <result column="road_expedite" jdbcType="VARCHAR" property="roadExpedite" />
+    <result column="road_unknown" jdbcType="VARCHAR" property="roadUnknown" />
+    <result column="temperature" jdbcType="VARCHAR" property="temperature" />
+    <result column="traffic_desc" jdbcType="VARCHAR" property="trafficDesc" />
+    <result column="weather" jdbcType="VARCHAR" property="weather" />
+    <result column="wind_direction" jdbcType="VARCHAR" property="windDirection" />
+    <result column="wind_power" jdbcType="VARCHAR" property="windPower" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, city, create_time, humidity, `location`, province, road_blocked, road_congested, 
+    road_expedite, road_unknown, temperature, traffic_desc, weather, wind_direction, 
+    wind_power, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from meilong_standalone_data_analysis.dw_traffic_status_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from meilong_standalone_data_analysis.dw_traffic_status_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwTrafficStatusInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into meilong_standalone_data_analysis.dw_traffic_status_info (city, create_time, humidity, 
+      `location`, province, road_blocked, 
+      road_congested, road_expedite, road_unknown, 
+      temperature, traffic_desc, weather, 
+      wind_direction, wind_power, update_time
+      )
+    values (#{city,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{humidity,jdbcType=VARCHAR}, 
+      #{location,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{roadBlocked,jdbcType=VARCHAR}, 
+      #{roadCongested,jdbcType=VARCHAR}, #{roadExpedite,jdbcType=VARCHAR}, #{roadUnknown,jdbcType=VARCHAR}, 
+      #{temperature,jdbcType=VARCHAR}, #{trafficDesc,jdbcType=VARCHAR}, #{weather,jdbcType=VARCHAR}, 
+      #{windDirection,jdbcType=VARCHAR}, #{windPower,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwTrafficStatusInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into meilong_standalone_data_analysis.dw_traffic_status_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="city != null">
+        city,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="humidity != null">
+        humidity,
+      </if>
+      <if test="location != null">
+        `location`,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="roadBlocked != null">
+        road_blocked,
+      </if>
+      <if test="roadCongested != null">
+        road_congested,
+      </if>
+      <if test="roadExpedite != null">
+        road_expedite,
+      </if>
+      <if test="roadUnknown != null">
+        road_unknown,
+      </if>
+      <if test="temperature != null">
+        temperature,
+      </if>
+      <if test="trafficDesc != null">
+        traffic_desc,
+      </if>
+      <if test="weather != null">
+        weather,
+      </if>
+      <if test="windDirection != null">
+        wind_direction,
+      </if>
+      <if test="windPower != null">
+        wind_power,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="humidity != null">
+        #{humidity,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="roadBlocked != null">
+        #{roadBlocked,jdbcType=VARCHAR},
+      </if>
+      <if test="roadCongested != null">
+        #{roadCongested,jdbcType=VARCHAR},
+      </if>
+      <if test="roadExpedite != null">
+        #{roadExpedite,jdbcType=VARCHAR},
+      </if>
+      <if test="roadUnknown != null">
+        #{roadUnknown,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null">
+        #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="trafficDesc != null">
+        #{trafficDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="weather != null">
+        #{weather,jdbcType=VARCHAR},
+      </if>
+      <if test="windDirection != null">
+        #{windDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="windPower != null">
+        #{windPower,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwTrafficStatusInfo">
+    <!--@mbg.generated-->
+    update meilong_standalone_data_analysis.dw_traffic_status_info
+    <set>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="humidity != null">
+        humidity = #{humidity,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        `location` = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="roadBlocked != null">
+        road_blocked = #{roadBlocked,jdbcType=VARCHAR},
+      </if>
+      <if test="roadCongested != null">
+        road_congested = #{roadCongested,jdbcType=VARCHAR},
+      </if>
+      <if test="roadExpedite != null">
+        road_expedite = #{roadExpedite,jdbcType=VARCHAR},
+      </if>
+      <if test="roadUnknown != null">
+        road_unknown = #{roadUnknown,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null">
+        temperature = #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="trafficDesc != null">
+        traffic_desc = #{trafficDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="weather != null">
+        weather = #{weather,jdbcType=VARCHAR},
+      </if>
+      <if test="windDirection != null">
+        wind_direction = #{windDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="windPower != null">
+        wind_power = #{windPower,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwTrafficStatusInfo">
+    <!--@mbg.generated-->
+    update meilong_standalone_data_analysis.dw_traffic_status_info
+    set city = #{city,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      humidity = #{humidity,jdbcType=VARCHAR},
+      `location` = #{location,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      road_blocked = #{roadBlocked,jdbcType=VARCHAR},
+      road_congested = #{roadCongested,jdbcType=VARCHAR},
+      road_expedite = #{roadExpedite,jdbcType=VARCHAR},
+      road_unknown = #{roadUnknown,jdbcType=VARCHAR},
+      temperature = #{temperature,jdbcType=VARCHAR},
+      traffic_desc = #{trafficDesc,jdbcType=VARCHAR},
+      weather = #{weather,jdbcType=VARCHAR},
+      wind_direction = #{windDirection,jdbcType=VARCHAR},
+      wind_power = #{windPower,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into meilong_standalone_data_analysis.dw_traffic_status_info
+    (city, create_time, humidity, `location`, province, road_blocked, road_congested, 
+      road_expedite, road_unknown, temperature, traffic_desc, weather, wind_direction, 
+      wind_power, update_time)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.city,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.humidity,jdbcType=VARCHAR}, 
+        #{item.location,jdbcType=VARCHAR}, #{item.province,jdbcType=VARCHAR}, #{item.roadBlocked,jdbcType=VARCHAR}, 
+        #{item.roadCongested,jdbcType=VARCHAR}, #{item.roadExpedite,jdbcType=VARCHAR}, 
+        #{item.roadUnknown,jdbcType=VARCHAR}, #{item.temperature,jdbcType=VARCHAR}, #{item.trafficDesc,jdbcType=VARCHAR}, 
+        #{item.weather,jdbcType=VARCHAR}, #{item.windDirection,jdbcType=VARCHAR}, #{item.windPower,jdbcType=VARCHAR}, 
+        #{item.updateTime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+</mapper>

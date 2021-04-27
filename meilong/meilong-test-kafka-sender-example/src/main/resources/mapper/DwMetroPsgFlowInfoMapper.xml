@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.ai.meilong.test.kafka.sender.example.mapper.DwMetroPsgFlowInfoMapper">
+  <resultMap id="BaseResultMap" type="com.shdata.ai.meilong.test.kafka.sender.example.object.DwMetroPsgFlowInfoVO">
+    <!--@mbg.generated-->
+    <!--@Table datalab.dw_metro_psg_flow_info-->
+    <result column="station_id" jdbcType="VARCHAR" property="stationId" />
+    <result column="line_id" jdbcType="VARCHAR" property="lineId" />
+    <result column="step_out" jdbcType="VARCHAR" property="stepOut" />
+    <result column="step_in" jdbcType="VARCHAR" property="stepIn" />
+    <result column="count_start_time" jdbcType="TIMESTAMP" property="countStartTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="count_end_time" jdbcType="TIMESTAMP" property="countEndTime" />
+    <result column="station_name" jdbcType="VARCHAR" property="stationName" />
+    <result column="line_belong" jdbcType="VARCHAR" property="lineBelong" />
+    <result column="x" jdbcType="VARCHAR" property="x" />
+    <result column="y" jdbcType="VARCHAR" property="y" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    station_id, line_id, step_out, step_in, count_start_time, create_time, count_end_time, 
+    station_name, line_belong, x, y
+  </sql>
+  <insert id="insert" parameterType="com.shdata.ai.meilong.test.kafka.sender.example.object.DwMetroPsgFlowInfoVO">
+    <!--@mbg.generated-->
+    insert into datalab.dw_metro_psg_flow_info (station_id, line_id, step_out, 
+      step_in, count_start_time, create_time, 
+      count_end_time, station_name, line_belong, 
+      x, y)
+    values (#{stationId,jdbcType=VARCHAR}, #{lineId,jdbcType=VARCHAR}, #{stepOut,jdbcType=VARCHAR}, 
+      #{stepIn,jdbcType=VARCHAR}, #{countStartTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{countEndTime,jdbcType=TIMESTAMP}, #{stationName,jdbcType=VARCHAR}, #{lineBelong,jdbcType=VARCHAR}, 
+      #{x,jdbcType=VARCHAR}, #{y,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shdata.ai.meilong.test.kafka.sender.example.object.DwMetroPsgFlowInfoVO">
+    <!--@mbg.generated-->
+    insert into datalab.dw_metro_psg_flow_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="lineId != null">
+        line_id,
+      </if>
+      <if test="stepOut != null">
+        step_out,
+      </if>
+      <if test="stepIn != null">
+        step_in,
+      </if>
+      <if test="countStartTime != null">
+        count_start_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="countEndTime != null">
+        count_end_time,
+      </if>
+      <if test="stationName != null">
+        station_name,
+      </if>
+      <if test="lineBelong != null">
+        line_belong,
+      </if>
+      <if test="x != null">
+        x,
+      </if>
+      <if test="y != null">
+        y,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        #{stationId,jdbcType=VARCHAR},
+      </if>
+      <if test="lineId != null">
+        #{lineId,jdbcType=VARCHAR},
+      </if>
+      <if test="stepOut != null">
+        #{stepOut,jdbcType=VARCHAR},
+      </if>
+      <if test="stepIn != null">
+        #{stepIn,jdbcType=VARCHAR},
+      </if>
+      <if test="countStartTime != null">
+        #{countStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="countEndTime != null">
+        #{countEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="lineBelong != null">
+        #{lineBelong,jdbcType=VARCHAR},
+      </if>
+      <if test="x != null">
+        #{x,jdbcType=VARCHAR},
+      </if>
+      <if test="y != null">
+        #{y,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into datalab.dw_metro_psg_flow_info
+    (station_id, line_id, step_out, step_in, count_start_time, create_time, count_end_time, 
+      station_name, line_belong, x, y)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.stationId,jdbcType=VARCHAR}, #{item.lineId,jdbcType=VARCHAR}, #{item.stepOut,jdbcType=VARCHAR}, 
+        #{item.stepIn,jdbcType=VARCHAR}, #{item.countStartTime,jdbcType=TIMESTAMP}, #{item.createTime,jdbcType=TIMESTAMP}, 
+        #{item.countEndTime,jdbcType=TIMESTAMP}, #{item.stationName,jdbcType=VARCHAR}, 
+        #{item.lineBelong,jdbcType=VARCHAR}, #{item.x,jdbcType=VARCHAR}, #{item.y,jdbcType=VARCHAR}
+        )
+    </foreach>
+  </insert>
+
+  <select id="findall" resultMap="BaseResultMap">
+    select * from datalab.dw_metro_psg_flow_info;
+  </select>
+</mapper>

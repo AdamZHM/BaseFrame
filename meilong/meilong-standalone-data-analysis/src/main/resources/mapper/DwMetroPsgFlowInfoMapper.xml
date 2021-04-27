@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.ai.meilong.standalone.dataanalysis.mapper.DwMetroPsgFlowInfoMapper">
+  <resultMap id="BaseResultMap" type="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwMetroPsgFlowInfo">
+    <!--@mbg.generated-->
+    <!--@Table meilong_standalone_data_analysis.dw_metro_psg_flow_info-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="station_id" jdbcType="VARCHAR" property="stationId" />
+    <result column="line_id" jdbcType="VARCHAR" property="lineId" />
+    <result column="step_out" jdbcType="VARCHAR" property="stepOut" />
+    <result column="step_in" jdbcType="VARCHAR" property="stepIn" />
+    <result column="count_start_time" jdbcType="TIMESTAMP" property="countStartTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="count_end_time" jdbcType="TIMESTAMP" property="countEndTime" />
+    <result column="station_name" jdbcType="VARCHAR" property="stationName" />
+    <result column="line_belong" jdbcType="VARCHAR" property="lineBelong" />
+    <result column="x" jdbcType="VARCHAR" property="x" />
+    <result column="y" jdbcType="VARCHAR" property="y" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="is_used" jdbcType="BOOLEAN" property="isUsed" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, station_id, line_id, step_out, step_in, count_start_time, create_time, count_end_time, 
+    station_name, line_belong, x, y, update_time, is_used
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from meilong_standalone_data_analysis.dw_metro_psg_flow_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from meilong_standalone_data_analysis.dw_metro_psg_flow_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwMetroPsgFlowInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into meilong_standalone_data_analysis.dw_metro_psg_flow_info (station_id, line_id, step_out, 
+      step_in, count_start_time, create_time, 
+      count_end_time, station_name, line_belong, 
+      x, y, update_time, 
+      is_used)
+    values (#{stationId,jdbcType=VARCHAR}, #{lineId,jdbcType=VARCHAR}, #{stepOut,jdbcType=VARCHAR}, 
+      #{stepIn,jdbcType=VARCHAR}, #{countStartTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{countEndTime,jdbcType=TIMESTAMP}, #{stationName,jdbcType=VARCHAR}, #{lineBelong,jdbcType=VARCHAR}, 
+      #{x,jdbcType=VARCHAR}, #{y,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isUsed,jdbcType=BOOLEAN})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwMetroPsgFlowInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into meilong_standalone_data_analysis.dw_metro_psg_flow_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        station_id,
+      </if>
+      <if test="lineId != null">
+        line_id,
+      </if>
+      <if test="stepOut != null">
+        step_out,
+      </if>
+      <if test="stepIn != null">
+        step_in,
+      </if>
+      <if test="countStartTime != null">
+        count_start_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="countEndTime != null">
+        count_end_time,
+      </if>
+      <if test="stationName != null">
+        station_name,
+      </if>
+      <if test="lineBelong != null">
+        line_belong,
+      </if>
+      <if test="x != null">
+        x,
+      </if>
+      <if test="y != null">
+        y,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="isUsed != null">
+        is_used,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stationId != null">
+        #{stationId,jdbcType=VARCHAR},
+      </if>
+      <if test="lineId != null">
+        #{lineId,jdbcType=VARCHAR},
+      </if>
+      <if test="stepOut != null">
+        #{stepOut,jdbcType=VARCHAR},
+      </if>
+      <if test="stepIn != null">
+        #{stepIn,jdbcType=VARCHAR},
+      </if>
+      <if test="countStartTime != null">
+        #{countStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="countEndTime != null">
+        #{countEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="lineBelong != null">
+        #{lineBelong,jdbcType=VARCHAR},
+      </if>
+      <if test="x != null">
+        #{x,jdbcType=VARCHAR},
+      </if>
+      <if test="y != null">
+        #{y,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isUsed != null">
+        #{isUsed,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwMetroPsgFlowInfo">
+    <!--@mbg.generated-->
+    update meilong_standalone_data_analysis.dw_metro_psg_flow_info
+    <set>
+      <if test="stationId != null">
+        station_id = #{stationId,jdbcType=VARCHAR},
+      </if>
+      <if test="lineId != null">
+        line_id = #{lineId,jdbcType=VARCHAR},
+      </if>
+      <if test="stepOut != null">
+        step_out = #{stepOut,jdbcType=VARCHAR},
+      </if>
+      <if test="stepIn != null">
+        step_in = #{stepIn,jdbcType=VARCHAR},
+      </if>
+      <if test="countStartTime != null">
+        count_start_time = #{countStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="countEndTime != null">
+        count_end_time = #{countEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stationName != null">
+        station_name = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="lineBelong != null">
+        line_belong = #{lineBelong,jdbcType=VARCHAR},
+      </if>
+      <if test="x != null">
+        x = #{x,jdbcType=VARCHAR},
+      </if>
+      <if test="y != null">
+        y = #{y,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isUsed != null">
+        is_used = #{isUsed,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.DwMetroPsgFlowInfo">
+    <!--@mbg.generated-->
+    update meilong_standalone_data_analysis.dw_metro_psg_flow_info
+    set station_id = #{stationId,jdbcType=VARCHAR},
+      line_id = #{lineId,jdbcType=VARCHAR},
+      step_out = #{stepOut,jdbcType=VARCHAR},
+      step_in = #{stepIn,jdbcType=VARCHAR},
+      count_start_time = #{countStartTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      count_end_time = #{countEndTime,jdbcType=TIMESTAMP},
+      station_name = #{stationName,jdbcType=VARCHAR},
+      line_belong = #{lineBelong,jdbcType=VARCHAR},
+      x = #{x,jdbcType=VARCHAR},
+      y = #{y,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_used = #{isUsed,jdbcType=BOOLEAN}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into meilong_standalone_data_analysis.dw_metro_psg_flow_info
+    (station_id, line_id, step_out, step_in, count_start_time, create_time, count_end_time, 
+      station_name, line_belong, x, y, update_time, is_used)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.stationId,jdbcType=VARCHAR}, #{item.lineId,jdbcType=VARCHAR}, #{item.stepOut,jdbcType=VARCHAR}, 
+        #{item.stepIn,jdbcType=VARCHAR}, #{item.countStartTime,jdbcType=TIMESTAMP}, #{item.createTime,jdbcType=TIMESTAMP}, 
+        #{item.countEndTime,jdbcType=TIMESTAMP}, #{item.stationName,jdbcType=VARCHAR}, 
+        #{item.lineBelong,jdbcType=VARCHAR}, #{item.x,jdbcType=VARCHAR}, #{item.y,jdbcType=VARCHAR}, 
+        #{item.updateTime,jdbcType=TIMESTAMP}, #{item.isUsed,jdbcType=BOOLEAN})
+    </foreach>
+  </insert>
+</mapper>

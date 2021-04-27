@@ -1,0 +1,70 @@
+spring:
+  flyway:
+    # https://segmentfault.com/a/1190000020850220
+    # flyway 的 clean 命令会删除指定 schema 下的所有 table, 生产务必禁掉。这个默认值是 false 理论上作为默认配置是不科学的。
+    clean-disabled: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/meilong_standalone_data_analysis?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&useTimezone=true&serverTimezone=Asia/Shanghai
+      username: xxxx
+      password: xxxx
+      driverClassName: com.mysql.cj.jdbc.Driver
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      timeBetweenEvictionRunsMillis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: false
+        wall:
+          config:
+          multi-statement-allow: true
+  kafka:
+    bootstrap-servers: xxxxx:xxxx
+
+    # The reason why I didn't used JsonDeserializer here is:
+    #
+    # For the JsonDeserializer, we have to lookup the accurate class name in the "Header" of Kafka record to deserializer.
+    #
+    #   e.g.  __TypeId__	com.shdata.ai.meilong.standalone.dataanalysis.object.viewobject.PassengerFlowFeaturesVO
+    #
+    # The option of JsonDeserializer is only suitable for the internal usage of Kafka. If data is passed from outside, we are
+    # not able to know the class name in the java project from Meilong. So we have to use StringDeserializer here, and deserialize
+    # json to object from string manually.
+    consumer:
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+mybatis:
+  mapper-locations:
+    - classpath*:mapper/*.xml
+
+logging:
+  level:
+    com:
+      shdata:
+        www:
+          mapper: debug
+    org:
+      zalando:
+        logbook: TRACE
+
+logbook:
+  write:
+    level: TRACE
+  format:
+    style: http
+

@@ -1,0 +1,6 @@
+spring:
+  flyway:
+    clean-disabled: false
+  datasource:
+      username: root
+      password: 1234

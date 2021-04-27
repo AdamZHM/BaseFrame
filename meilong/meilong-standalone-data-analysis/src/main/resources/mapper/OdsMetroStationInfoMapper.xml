@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shdata.ai.meilong.standalone.dataanalysis.mapper.OdsMetroStationInfoMapper">
+  <resultMap id="BaseResultMap" type="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.OdsMetroStationInfo">
+    <!--@mbg.generated-->
+    <!--@Table meilong_standalone_data_analysis.ods_metro_station_info-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="address_code" jdbcType="VARCHAR" property="addressCode" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="line_number" jdbcType="VARCHAR" property="lineNumber" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="station_name" jdbcType="VARCHAR" property="stationName" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, address_code, city, create_time, line_number, `location`, station_name, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from meilong_standalone_data_analysis.ods_metro_station_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from meilong_standalone_data_analysis.ods_metro_station_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.OdsMetroStationInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into meilong_standalone_data_analysis.ods_metro_station_info (address_code, city, create_time, 
+      line_number, `location`, station_name, 
+      update_time)
+    values (#{addressCode,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lineNumber,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, #{stationName,jdbcType=VARCHAR}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.OdsMetroStationInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into meilong_standalone_data_analysis.ods_metro_station_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="addressCode != null">
+        address_code,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lineNumber != null">
+        line_number,
+      </if>
+      <if test="location != null">
+        `location`,
+      </if>
+      <if test="stationName != null">
+        station_name,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="addressCode != null">
+        #{addressCode,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lineNumber != null">
+        #{lineNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="stationName != null">
+        #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.OdsMetroStationInfo">
+    <!--@mbg.generated-->
+    update meilong_standalone_data_analysis.ods_metro_station_info
+    <set>
+      <if test="addressCode != null">
+        address_code = #{addressCode,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lineNumber != null">
+        line_number = #{lineNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        `location` = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="stationName != null">
+        station_name = #{stationName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shdata.ai.meilong.standalone.dataanalysis.object.dataobject.OdsMetroStationInfo">
+    <!--@mbg.generated-->
+    update meilong_standalone_data_analysis.ods_metro_station_info
+    set address_code = #{addressCode,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      line_number = #{lineNumber,jdbcType=VARCHAR},
+      `location` = #{location,jdbcType=VARCHAR},
+      station_name = #{stationName,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into meilong_standalone_data_analysis.ods_metro_station_info
+    (address_code, city, create_time, line_number, `location`, station_name, update_time
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.addressCode,jdbcType=VARCHAR}, #{item.city,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, 
+        #{item.lineNumber,jdbcType=VARCHAR}, #{item.location,jdbcType=VARCHAR}, #{item.stationName,jdbcType=VARCHAR}, 
+        #{item.updateTime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+
+<!--auto generated by MybatisCodeHelper on 2021-04-23-->
+  <select id="findAllByCity" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from meilong_standalone_data_analysis.ods_metro_station_info
+    where city=#{city,jdbcType=VARCHAR}
+  </select>
+</mapper>
